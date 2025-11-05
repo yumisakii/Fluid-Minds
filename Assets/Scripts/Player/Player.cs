@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -6,8 +5,8 @@ public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 50f;
-    [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private float rotationSpeed = 20f;
     [SerializeField] private Vector2 minMaxYaw = new(-90f, 90f);
 
     [Header("Player components")]
