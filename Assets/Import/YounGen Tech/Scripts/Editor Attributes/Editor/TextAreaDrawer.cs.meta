@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6363e1d3513fc0d4e809fe4724b8406f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Scripts/Editor Attributes/Editor/TextAreaDrawer.cs
+  uploadId: 226368

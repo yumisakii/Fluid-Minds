@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2ad2d14eb65c80440ab70a7c416957d4
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Energy Based Objects/Models/Energy Cube/EnergyCubeController.cs
+  uploadId: 226368

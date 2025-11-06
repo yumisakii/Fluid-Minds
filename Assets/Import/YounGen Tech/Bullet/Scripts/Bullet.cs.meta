@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ed1190468f9435e4c81242553585726f
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Bullet/Scripts/Bullet.cs
+  uploadId: 226368

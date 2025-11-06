@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3701441f6214add43a5a63c40d70f952
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Scripts/Character Movement/RigidbodyMovement.cs
+  uploadId: 226368

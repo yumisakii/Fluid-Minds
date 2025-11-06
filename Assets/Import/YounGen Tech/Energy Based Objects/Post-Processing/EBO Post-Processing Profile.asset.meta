@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: e3d7dfa51c4370144acc7eb40b465318
+timeCreated: 1517055683
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Energy Based Objects/Post-Processing/EBO Post-Processing
+    Profile.asset
+  uploadId: 226368

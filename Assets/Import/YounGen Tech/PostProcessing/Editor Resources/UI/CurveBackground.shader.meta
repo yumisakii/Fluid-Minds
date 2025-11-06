@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b1b2bfb2897659e45983f0c3e7dda2c8
+timeCreated: 1460970196
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/PostProcessing/Editor Resources/UI/CurveBackground.shader
+  uploadId: 226368

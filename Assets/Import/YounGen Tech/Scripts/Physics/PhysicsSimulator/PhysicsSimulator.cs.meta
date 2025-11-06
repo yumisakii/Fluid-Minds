@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 27e5cb3c93153ec47bb593d8af500413
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 3387
+  packageName: Energy Based Objects
+  packageVersion: 2.02
+  assetPath: Assets/YounGen Tech/Scripts/Physics/PhysicsSimulator/PhysicsSimulator.cs
+  uploadId: 226368

@@ -10,20 +10,40 @@ public class HydroCore : MonoBehaviour
 
     [Header("Current State")]
     [SerializeField] private WaterState currentWaterState = WaterState.Jet; // Default state
-    
+
+    [Header("Water State Particle")]
+    [SerializeField] private ParticleSystem jetParticle = null;
+
     private IHydroInteractable currentHitTarget;
+
+    private bool isShootingJet = false;
 
     private PlayerInput playerInput;
     private InputAction fireAction;
     private InputAction switchModeAction;
 
+
+    private void Update()
+    {
+        if (isShootingJet)
+            HandleShooting();
+        else
+            HandleStopShooting();
+    }
+
     public void OnShoot(InputAction.CallbackContext context)
     {
         if (context.performed)
-            HandleShooting();
+        {
+            isShootingJet = true;
+            jetParticle.Play();
+        }
 
         else if (context.canceled)
-            HandleStopShooting();
+        {
+            isShootingJet = false;
+            jetParticle.Stop();
+        }
     }
 
     private void HandleShooting()
