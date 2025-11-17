@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 0.2f;
 
+    [Header("Interaction settings")]
+    [SerializeField] private int rayDistance = 100;
+    [SerializeField] private LayerMask interactionMask = default;
+
     private Vector3 moveInput = Vector3.zero;
     private Vector2 lookInput;
     private Vector2 currentRotation;
@@ -56,7 +60,20 @@ public class Player : MonoBehaviour
 
     public void Player_OnInteract(CallbackContext context)
     {
-        // Player Interaction
+        if (!context.performed)
+            return;
+        Debug.Log("OUi");
+
+        Ray ray = new Ray(head.position, head.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, rayDistance, interactionMask))
+        {
+            if (hit.collider.TryGetComponent(out InteractionToggleSetter interactionToggleSetter)) { 
+                Debug.Log("Non");
+                interactionToggleSetter.Interact();
+            }
+        }
     }
 
     private void LateUpdate()
