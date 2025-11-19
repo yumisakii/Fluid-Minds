@@ -93,8 +93,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-=======
     "com.unity.postprocessing": {
       "version": "3.4.0",
       "depth": 0,
@@ -104,7 +102,6 @@
       },
       "url": "https://packages.unity.com"
     },
->>>>>>> origin/levelIntro
     "com.unity.render-pipelines.core": {
       "version": "17.0.4",
       "depth": 1,

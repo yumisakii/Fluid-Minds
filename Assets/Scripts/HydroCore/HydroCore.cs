@@ -8,7 +8,7 @@ public class HydroCore : MonoBehaviour
     [SerializeField] private float fireRange = 50f;
     [SerializeField] private LayerMask interactableLayers;
     [SerializeField] private Transform raycastOrigin;
-    [SerializeField] private float waterTank = 100;
+    [SerializeField] private float waterTank = 50;
     [SerializeField] private float maxWaterTank = 100;
 
     [Header("UI")]
@@ -31,11 +31,13 @@ public class HydroCore : MonoBehaviour
     {
         if (isShootingJet)
         {
+            currentWaterState = WaterState.Jet;
             HandleShooting(WaterState.Jet);
             UseWater(10 * Time.deltaTime);
         }
         else if (isAbsorbing)
         {
+            currentWaterState = WaterState.Absorb;
             HandleShooting(WaterState.Absorb);
         }
         else
@@ -50,6 +52,7 @@ public class HydroCore : MonoBehaviour
 
     public void GainWater(float waterValue)
     {
+        Debug.Log("Gained Water: " + waterValue);
         waterTank += waterValue;
         if (waterTank > maxWaterTank)
         {
@@ -103,7 +106,7 @@ public class HydroCore : MonoBehaviour
     }
 
     private void HandleShooting(WaterState stateToFire)
-    {        
+    {
         RaycastHit hit;
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, fireRange, interactableLayers))
         {

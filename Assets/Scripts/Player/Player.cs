@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 using System.Collections;
->>>>>>> origin/levelIntro
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -9,13 +6,8 @@ public class Player : MonoBehaviour
 {
     [Header("Player Stats")]
     [SerializeField] private float speed = 5f;
-<<<<<<< HEAD
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float rotationSpeed = 20f;
-=======
-    [SerializeField] private float jumpForce = 50f;
-    [SerializeField] private float rotationSpeed = 5f;
->>>>>>> origin/levelIntro
     [SerializeField] private Vector2 minMaxYaw = new(-90f, 90f);
 
     [Header("Player components")]
@@ -26,13 +18,10 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float groundCheckDistance = 0.2f;
 
-<<<<<<< HEAD
-=======
     [Header("Interaction settings")]
     [SerializeField] private int rayDistance = 100;
     [SerializeField] private LayerMask interactionMask = default;
 
->>>>>>> origin/levelIntro
     private Vector3 moveInput = Vector3.zero;
     private Vector2 lookInput;
     private Vector2 currentRotation;
@@ -71,24 +60,19 @@ public class Player : MonoBehaviour
 
     public void Player_OnInteract(CallbackContext context)
     {
-<<<<<<< HEAD
-        // Player Interaction
-=======
         if (!context.performed)
             return;
-        Debug.Log("OUi");
 
         Ray ray = new Ray(head.position, head.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayDistance, interactionMask))
         {
-            if (hit.collider.TryGetComponent(out InteractionToggleSetter interactionToggleSetter)) { 
-                Debug.Log("Non");
+            if (hit.collider.TryGetComponent(out InteractionToggleSetter interactionToggleSetter))
+            {
                 interactionToggleSetter.Interact();
             }
         }
->>>>>>> origin/levelIntro
     }
 
     private void LateUpdate()

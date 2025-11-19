@@ -5,18 +5,30 @@ public class TestTurbine : MonoBehaviour, IHydroInteractable
     [Header("Turbine Settings")]
     [SerializeField] private float rotationSpeed = 50f;
 
+    [SerializeField] private Animator doorAnimator;
+
     private bool isBeingHitByJet = false;
+
+    private float rotationValue = 0f;
 
     private void Update()
     {
         if (isBeingHitByJet)
         {
-            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
+            rotationValue += rotationSpeed * Time.deltaTime;
+        }
+
+        if (rotationValue >= 360f)
+        {
+            Debug.Log("Turbine completed a full rotation!");
+            doorAnimator.SetBool("IsDoorOpen", true);
+            rotationValue = 0f;
         }
     }
 
     public void OnHydroHit(HydroCore hydroCore, WaterState state, Vector3 hitPoint, Vector3 hitNormal)
-    {        
+    {
         if (state == WaterState.Jet)
         {
             isBeingHitByJet = true;

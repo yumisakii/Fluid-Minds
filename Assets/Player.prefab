@@ -143,8 +143,12 @@ MonoBehaviour:
   head: {fileID: 6053585308909483662}
   groundMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   groundCheckDistance: 0.3
+  rayDistance: 100
+  interactionMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &4630855232735598113
 Rigidbody:
   m_ObjectHideFlags: 0
