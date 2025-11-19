@@ -2,6 +2,7 @@
     "name": "Player Input",
     "maps": [
         {
+<<<<<<< HEAD
             "name": "Default",
             "id": "e1379c61-c735-46af-954e-5081a6ca82aa",
             "actions": [
@@ -45,15 +46,39 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "16c4a7a7-4f25-45c0-bab4-999cdc37c324",
+=======
+            "name": "Player",
+            "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "be0eb612-6d77-475c-b76d-8c7d43605ed5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MoveRight",
+                    "type": "Button",
+                    "id": "d92f0fbd-ea38-4779-8fc2-e7b1b759b800",
+>>>>>>> origin/levelIntro
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
+<<<<<<< HEAD
                     "name": "Absorb",
                     "type": "Button",
                     "id": "7c8e6881-3bf6-4881-8910-121d9335bddb",
+=======
+                    "name": "MoveLeft",
+                    "type": "Button",
+                    "id": "876a7663-3e52-4860-8a85-95985960619c",
+>>>>>>> origin/levelIntro
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -62,6 +87,7 @@
             ],
             "bindings": [
                 {
+<<<<<<< HEAD
                     "name": "WASD",
                     "id": "153adaee-6a62-4b20-8396-910ea8c04785",
                     "path": "2DVector",
@@ -130,6 +156,10 @@
                 {
                     "name": "",
                     "id": "e26b8982-91a7-474c-bfca-2a8c1efdebab",
+=======
+                    "name": "",
+                    "id": "bd8d3be8-417e-423b-a472-4f2797222e75",
+>>>>>>> origin/levelIntro
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -140,17 +170,27 @@
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "dad83283-dbce-409a-b32b-a35f7584b20a",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+=======
+                    "id": "c08e9b3d-e475-47e9-824a-06f1ae59f1c9",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRight",
+>>>>>>> origin/levelIntro
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
+<<<<<<< HEAD
                     "id": "3bb3917c-5d2f-4ada-bd9b-a52f1b323a8f",
                     "path": "",
                     "interactions": "",
@@ -212,6 +252,14 @@
                     "processors": "",
                     "groups": "",
                     "action": "Absorb",
+=======
+                    "id": "8fbea5ff-b169-4532-9d5b-52fc472a9fbc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MoveLeft",
+>>>>>>> origin/levelIntro
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

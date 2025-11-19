@@ -11,6 +11,10 @@ TagManager:
   - Shootable
   - Water
   - UI
+<<<<<<< HEAD
+=======
+  - UI
+>>>>>>> origin/levelIntro
   - Ground
   - 
   - 
@@ -36,7 +40,10 @@ TagManager:
   - 
   - 
   - 
+<<<<<<< HEAD
   - 
+=======
+>>>>>>> origin/levelIntro
   m_SortingLayers:
   - name: Default
     uniqueID: 0
