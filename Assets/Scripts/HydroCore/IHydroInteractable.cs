@@ -10,7 +10,7 @@ public interface IHydroInteractable
      * @param hitPoint - Where in the world is the impact?
      * @param hitNormal - What is the angle of the surface we hit?
      */
-    void OnHydroHit(WaterState state, Vector3 hitPoint, Vector3 hitNormal);
+    void OnHydroHit(HydroCore playerCore, WaterState state, Vector3 hitPoint, Vector3 hitNormal);
 
     /*
      * We add a second method for when the player *stops* hitting 

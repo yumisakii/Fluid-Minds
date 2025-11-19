@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,34 +7,75 @@ public class HydroCore : MonoBehaviour
     [Header("Core Settings")]
     [SerializeField] private float fireRange = 50f;
     [SerializeField] private LayerMask interactableLayers;
-    [SerializeField] private Transform raycastOrigin; // the camera
+    [SerializeField] private Transform raycastOrigin;
+    [SerializeField] private float waterTank = 100;
+    [SerializeField] private float maxWaterTank = 100;
+
+    [Header("UI")]
+    [SerializeField] private TextMeshProUGUI tankText = null;
 
     [Header("Current State")]
     [SerializeField] private WaterState currentWaterState = WaterState.Jet; // Default state
 
     [Header("Water State Particle")]
     [SerializeField] private ParticleSystem jetParticle = null;
+    [SerializeField] private ParticleSystem absorbParticle = null;
 
     private IHydroInteractable currentHitTarget;
 
     private bool isShootingJet = false;
-
-    private PlayerInput playerInput;
-    private InputAction fireAction;
-    private InputAction switchModeAction;
+    private bool isAbsorbing = false;
 
 
     private void Update()
     {
         if (isShootingJet)
-            HandleShooting();
+        {
+            HandleShooting(WaterState.Jet);
+            UseWater(10 * Time.deltaTime);
+        }
+        else if (isAbsorbing)
+        {
+            HandleShooting(WaterState.Absorb);
+        }
         else
+        {
             HandleStopShooting();
+            if (jetParticle.isPlaying) jetParticle.Stop();
+            if (absorbParticle.isPlaying) absorbParticle.Stop();
+        }
+
+        UpdateUI();
+    }
+
+    public void GainWater(float waterValue)
+    {
+        waterTank += waterValue;
+        if (waterTank > maxWaterTank)
+        {
+            waterTank = maxWaterTank;
+        }
+    }
+
+    private void UseWater(float waterValue)
+    {
+        waterTank -= waterValue;
+        if (waterTank <= 0)
+        {
+            waterTank = 0;
+            isShootingJet = false;
+        }
+
+    }
+
+    private void UpdateUI()
+    {
+        tankText.text = Mathf.FloorToInt(waterTank).ToString();
     }
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && waterTank > 0)
         {
             isShootingJet = true;
             jetParticle.Play();
@@ -46,8 +88,22 @@ public class HydroCore : MonoBehaviour
         }
     }
 
-    private void HandleShooting()
+    public void OnAbsorb(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            isAbsorbing = true;
+            absorbParticle.Play();
+        }
+        else if (context.canceled)
+        {
+            isAbsorbing = false;
+            absorbParticle.Stop();
+        }
+    }
+
+    private void HandleShooting(WaterState stateToFire)
+    {        
         RaycastHit hit;
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, fireRange, interactableLayers))
         {
@@ -55,7 +111,7 @@ public class HydroCore : MonoBehaviour
 
             if (interactable != null)
             {
-                interactable.OnHydroHit(currentWaterState, hit.point, hit.normal);
+                interactable.OnHydroHit(this, currentWaterState, hit.point, hit.normal);
 
                 currentHitTarget = interactable;
             }

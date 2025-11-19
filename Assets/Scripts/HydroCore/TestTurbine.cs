@@ -15,7 +15,7 @@ public class TestTurbine : MonoBehaviour, IHydroInteractable
         }
     }
 
-    public void OnHydroHit(WaterState state, Vector3 hitPoint, Vector3 hitNormal)
+    public void OnHydroHit(HydroCore hydroCore, WaterState state, Vector3 hitPoint, Vector3 hitNormal)
     {        
         if (state == WaterState.Jet)
         {
