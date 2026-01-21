@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI; // Nécessaire pour le Slider
 
 public class HydroCore : MonoBehaviour
 {
@@ -13,19 +14,18 @@ public class HydroCore : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI tankText = null;
+    [SerializeField] private Slider waterSlider = null; // Ta nouvelle jauge
 
     [Header("Current State")]
-    [SerializeField] private WaterState currentWaterState = WaterState.Jet; // Default state
+    [SerializeField] private WaterState currentWaterState = WaterState.Jet;
 
     [Header("Water State Particle")]
     [SerializeField] private ParticleSystem jetParticle = null;
     [SerializeField] private ParticleSystem absorbParticle = null;
 
     private IHydroInteractable currentHitTarget;
-
     private bool isShootingJet = false;
     private bool isAbsorbing = false;
-
 
     private void Update()
     {
@@ -52,12 +52,8 @@ public class HydroCore : MonoBehaviour
 
     public void GainWater(float waterValue)
     {
-        Debug.Log("Gained Water: " + waterValue);
         waterTank += waterValue;
-        if (waterTank > maxWaterTank)
-        {
-            waterTank = maxWaterTank;
-        }
+        if (waterTank > maxWaterTank) waterTank = maxWaterTank;
     }
 
     private void UseWater(float waterValue)
@@ -68,12 +64,19 @@ public class HydroCore : MonoBehaviour
             waterTank = 0;
             isShootingJet = false;
         }
-
     }
 
     private void UpdateUI()
     {
-        tankText.text = Mathf.FloorToInt(waterTank).ToString();
+        if (tankText != null)
+            tankText.text = Mathf.FloorToInt(waterTank).ToString();
+
+        // Fait bouger la barre bleue
+        if (waterSlider != null)
+        {
+            waterSlider.maxValue = maxWaterTank;
+            waterSlider.value = waterTank;
+        }
     }
 
     public void OnShoot(InputAction.CallbackContext context)
@@ -83,7 +86,6 @@ public class HydroCore : MonoBehaviour
             isShootingJet = true;
             jetParticle.Play();
         }
-
         else if (context.canceled)
         {
             isShootingJet = false;
@@ -111,11 +113,9 @@ public class HydroCore : MonoBehaviour
         if (Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hit, fireRange, interactableLayers))
         {
             IHydroInteractable interactable = hit.collider.GetComponent<IHydroInteractable>();
-
             if (interactable != null)
             {
                 interactable.OnHydroHit(this, currentWaterState, hit.point, hit.normal);
-
                 currentHitTarget = interactable;
             }
             else
