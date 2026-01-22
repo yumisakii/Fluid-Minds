@@ -43,8 +43,8 @@ public class HydroCore : MonoBehaviour
         else
         {
             HandleStopShooting();
-            if (jetParticle.isPlaying) jetParticle.Stop();
-            if (absorbParticle.isPlaying) absorbParticle.Stop();
+            //if (jetParticle.isPlaying) jetParticle.Stop();
+            //if (absorbParticle.isPlaying) absorbParticle.Stop();
         }
 
         UpdateUI();
@@ -73,7 +73,7 @@ public class HydroCore : MonoBehaviour
 
     private void UpdateUI()
     {
-        tankText.text = Mathf.FloorToInt(waterTank).ToString();
+        //tankText.text = Mathf.FloorToInt(waterTank).ToString();
     }
 
     public void OnShoot(InputAction.CallbackContext context)
@@ -81,13 +81,13 @@ public class HydroCore : MonoBehaviour
         if (context.performed && waterTank > 0)
         {
             isShootingJet = true;
-            jetParticle.Play();
+            //jetParticle.Play();
         }
 
         else if (context.canceled)
         {
             isShootingJet = false;
-            jetParticle.Stop();
+            //jetParticle.Stop();
         }
     }
 
@@ -96,12 +96,12 @@ public class HydroCore : MonoBehaviour
         if (context.performed)
         {
             isAbsorbing = true;
-            absorbParticle.Play();
+            //absorbParticle.Play();
         }
         else if (context.canceled)
         {
             isAbsorbing = false;
-            absorbParticle.Stop();
+            //absorbParticle.Stop();
         }
     }
 
